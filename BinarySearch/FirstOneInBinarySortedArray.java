@@ -24,7 +24,7 @@ public class FirstOneInBinarySortedArray {
             else {
                 start=mid+1;
             }
-        } // close of while loop
+        }
         return -1;
     }
 }
