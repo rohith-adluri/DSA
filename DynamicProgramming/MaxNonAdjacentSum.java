@@ -8,29 +8,29 @@ public class MaxNonAdjacentSum {
         int[]arr={2};
         int n=arr.length;
 
-        System.out.println(maxMonAdjacentSumTabulation(arr,n));
+        System.out.println(maxNonAdjacentSumTabulation(arr,n));
     }
-    private static int maxMonAdjacentSum(int arr[],int n){
+    private static int maxNonAdjacentSum(int arr[],int n){
         if(n==0){
             return arr[n];
         }
         if(n<0)return 0;
-        int take = arr[n]+maxMonAdjacentSum(arr,n-2);
-        int nottake = maxMonAdjacentSum(arr,n-1);
+        int take = arr[n]+maxNonAdjacentSum(arr,n-2);
+        int nottake = maxNonAdjacentSum(arr,n-1);
         return Math.max(take,nottake);
     }
-    private static int maxMonAdjacentSumMemoization(int arr[],int n,int[]dp){
+    private static int maxNonAdjacentSumMemoization(int arr[],int n,int[]dp){
         if(n==0) {
             return arr[n];
         }
         if(n<0)return 0;
         if(dp[n]!=-1)return dp[n];
-        int take = arr[n]+maxMonAdjacentSumMemoization(arr,n-2,dp);
-        int nottake = maxMonAdjacentSumMemoization(arr,n-1,dp);
+        int take = arr[n]+maxNonAdjacentSumMemoization(arr,n-2,dp);
+        int nottake = maxNonAdjacentSumMemoization(arr,n-1,dp);
         return dp[n]=Math.max(take,nottake);
     }
 
-    private static int maxMonAdjacentSumTabulation(int[]arr,int n){
+    private static int maxNonAdjacentSumTabulation(int[]arr,int n){
         int[]dp=new int[n];
         dp[0]=arr[0];
         for(int i=1;i<n;i++){

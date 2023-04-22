@@ -18,7 +18,7 @@ public class Fibonacci {
             return n;
         }
         if(dp[n]!=-1)return dp[n];
-        return dp[n]=fib(n-1)+fibMemoization(n-2,dp);
+        return dp[n]=fibMemoization(n-1,dp)+fibMemoization(n-2,dp);
     }
     private static int fibTabulation(int n){
         int[]dp=new int[n+1];
